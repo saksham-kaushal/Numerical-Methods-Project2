@@ -18,13 +18,13 @@ c
 c     initial conditions
 c
       x1 = 0.
-      x2 = 20.
-      ys(1) = 0.                !x
-      ys(2) = -1.68                !vx
-      ys(3) = 0.087                !y
-      ys(4) = 0.                !vy
+      x2 = ::
+      ys(1) = ::                !x
+      ys(2) = ::                !vx
+      ys(3) = ::                !y
+      ys(4) = ::                !vy
 c
-      call odeint(ys,nvar,x1,x2,1.e-7,1.e-8,0.0,nok,nbad,derivs,rkqs)
+      call odeint(ys,nvar,x1,x2,::,1.e-8,0.0,nok,nbad,derivs,rkqs)
 c
       do 10 i=1,kmax
       ej = 0.5*(yp(2,i)**2+yp(4,i)**2)-0.5*om**2*(yp(1,i)**2+yp(3,i)**2)
@@ -43,11 +43,10 @@ c
       real x,y(NVAR),dydx(NVAR),om,v0,a,q
       COMMON /params/ om,v0,a,q
 c
-      
       dydx(1) = y(2)
-      dydx(2) = -y(1)*v0**2/(a**2+y(1)**2+(y(3)**2/q**2))+2*om*y(4)+y(1)*om**2
+      dydx(2) = ::
       dydx(3) = y(4)
-      dydx(4) = -y(3)*v0**2/(q**2*(a**2+y(1)**2)+y(3)**2)-2*om*y(2)+y(3)*om**2
+      dydx(4) = ::
       return
       end
 c
