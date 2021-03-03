@@ -1,0 +1,7 @@
+epsilon
+eps_e-5    7.325935e-06
+eps_e-6    6.489444e-07
+eps_e-7    1.887483e-07
+eps_e-8    6.918339e-07
+eps_e-9    1.012574e-05
+Name: e_j, dtype: float64
