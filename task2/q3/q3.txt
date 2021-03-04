@@ -1,0 +1,2 @@
+ average radius:   0.338001817    
+ orbit calculated
