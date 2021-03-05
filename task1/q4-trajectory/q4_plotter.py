@@ -21,7 +21,7 @@ def plot_trajectories(df,x2_values):
 	g = sns.FacetGrid(data=df, hue='time_len', col='time_len', col_order=fname_list, aspect=2, height=4.5)
 	# g.map_dataframe(sns.lineplot)
 	g.map(plt.plot,'x','y', linewidth=0.7)
-	g.map(plt.scatter,'x','y', s=4.5)
+	g.map(sns.scatterplot,'x','y', s=10)
 	axes = g.axes.flatten()
 	for i,axis in enumerate(axes):
 		axis.set_title('Final time = '+str(float(x2_values[i])))

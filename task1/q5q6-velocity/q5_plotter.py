@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
 import seaborn as sns
+from string import ascii_lowercase
 
 
 def get_df(fname_list):
@@ -24,10 +25,13 @@ def plot_trajectories_sep(df,fname_list):
 		aspect=2,
 		height=3)
 	g.map(plt.plot,'x','y', linewidth=0.5)
-	g.map(plt.scatter,'x','y', s=1.5)
-	g.set_titles(col_template='$v_x = ${col_name}')
+	g.map(sns.scatterplot,'x','y', s=10)
+	# g.set_titles(col_template='$v_x = ${col_name}')
+	axes=g.axes.flatten()
+	for i,fname in enumerate(fname_list):
+		axes[i].set_title('('+ascii_lowercase[i]+') $v_x =$ '+str(fname))
 	# plt.show()
-	plt.savefig('./plots/q6_sep.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
+	plt.savefig('./plots/q5q6_sep.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
 	return
 
 def plot_trajectories_combined(df, vx_values):
@@ -35,7 +39,7 @@ def plot_trajectories_combined(df, vx_values):
 	g = sns.FacetGrid(data=df, hue='vx_init', aspect=3.33, height=7)
 	# g.map_dataframe(sns.lineplot)
 	g.map(plt.plot,'x','y', linewidth=1.0)
-	g.map(plt.scatter,'x','y', s=4)
+	g.map(sns.scatterplot,'x','y', s=10)
 	handles, labels = plt.gca().get_legend_handles_labels()
 	plt.legend(title='$v_x$',
 		title_fontsize='medium',
@@ -45,15 +49,15 @@ def plot_trajectories_combined(df, vx_values):
 		loc=0,
 		labels=vx_values)
 	# plt.show()
-	plt.savefig('./plots/q6_combined.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
+	plt.savefig('./plots/q5q6_combined.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
 	return
 
 
 # -----------------------------------------------------
 
-# vx_values = [-1.64,-1.635,-1.63,-1.58,-1.15,-0.6,-0.524,-0.4] 		#q5q6 combined
+vx_values = [-1.64,-1.635,-1.63,-1.58,-1.15,-0.6,-0.524,-0.4] 		#q5q6 combined
 # vx_values = [-1.68,-1.64,-1.635]							#q5 only
-vx_values = [-1.63,-1.58,-1.15,-0.6,-0.524,-0.4] 			#q6 only
+# vx_values = [-1.63,-1.58,-1.15,-0.6,-0.524,-0.4] 			#q6 only
 fname_list = vx_values
 df = get_df(fname_list)
 # print(df)
