@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np 
 import matplotlib.pyplot as plt 
 import seaborn as sns
+from string import ascii_lowercase
 
 
 def get_df(fname_list):
@@ -24,7 +25,7 @@ def plot_trajectories(df,x2_values):
 	g.map(sns.scatterplot,'x','y', s=10)
 	axes = g.axes.flatten()
 	for i,axis in enumerate(axes):
-		axis.set_title('Final time = '+str(float(x2_values[i])))
+		axis.set_title('('+str(ascii_lowercase[i])+') Final time = '+str(float(x2_values[i])))
 	plt.savefig('./plots/q4.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
 	# plt.show()
 	return

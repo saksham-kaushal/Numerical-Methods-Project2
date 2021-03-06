@@ -22,8 +22,8 @@ def plot_trajectories_sep(df,fname_list):
 		col='vx_init', 
 		col_order=fname_list, 
 		col_wrap=2,
-		aspect=2,
-		height=3)
+		aspect=2.5,
+		height=2.5)
 	g.map(plt.plot,'x','y', linewidth=0.5)
 	g.map(sns.scatterplot,'x','y', s=10)
 	# g.set_titles(col_template='$v_x = ${col_name}')
@@ -31,12 +31,12 @@ def plot_trajectories_sep(df,fname_list):
 	for i,fname in enumerate(fname_list):
 		axes[i].set_title('('+ascii_lowercase[i]+') $v_x =$ '+str(fname))
 	# plt.show()
-	plt.savefig('./plots/q5q6_sep.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
+	plt.savefig('./plots/q6_sep.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
 	return
 
 def plot_trajectories_combined(df, vx_values):
 	sns.set()
-	g = sns.FacetGrid(data=df, hue='vx_init', aspect=3.33, height=7)
+	g = sns.FacetGrid(data=df, hue='vx_init', aspect=2.75, height=5.75)
 	# g.map_dataframe(sns.lineplot)
 	g.map(plt.plot,'x','y', linewidth=1.0)
 	g.map(sns.scatterplot,'x','y', s=10)
@@ -46,21 +46,21 @@ def plot_trajectories_combined(df, vx_values):
 		fontsize='medium',
 		markerscale=3,
 		handles=handles[-len(vx_values):],
-		loc=0,
+		loc=1,
 		labels=vx_values)
 	# plt.show()
-	plt.savefig('./plots/q5q6_combined.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
+	plt.savefig('./plots/q6_combined.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
 	return
 
 
 # -----------------------------------------------------
 
-vx_values = [-1.64,-1.635,-1.63,-1.58,-1.15,-0.6,-0.524,-0.4] 		#q5q6 combined
+# vx_values = [-1.64,-1.635,-1.63,-1.58,-1.15,-0.6,-0.524,-0.4] 		#q5q6 combined
 # vx_values = [-1.68,-1.64,-1.635]							#q5 only
-# vx_values = [-1.63,-1.58,-1.15,-0.6,-0.524,-0.4] 			#q6 only
+vx_values = [-1.63,-1.58,-1.15,-0.6,-0.524,-0.4] 			#q6 only
 fname_list = vx_values
 df = get_df(fname_list)
 # print(df)
-# fname_list = [-1.64,-1.635]
+# fname_list = [-1.64,-1.635]									#q5 only
 plot_trajectories_sep(df,fname_list)
 plot_trajectories_combined(df,vx_values)

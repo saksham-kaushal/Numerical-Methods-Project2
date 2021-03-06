@@ -1,0 +1,132 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in, footskip=0.25in]{geometry}
+
+\usepackage{graphicx}
+\graphicspath{../}
+
+\usepackage{booktabs}
+
+\usepackage[backend=bibtex, style=numeric, sorting=none]{biblatex}
+\bibliography{references}
+%\addbibresource{references.bib}
+
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+
+\begin{document}
+	
+	% ======================= start titlepage ==============================================
+	
+	\begin{titlepage}
+		\begin{center}
+			\Large Numerical Methods in Astrophysics \\
+			\vspace{1cm}
+			\huge{
+				Project 2 \\
+				\vspace{0.5cm}
+				\textbf{Ordinary Differential Equations,}\\
+				\textbf{Fourier Transforms and} \\
+				\textbf{Spectral Analysis} \\
+				\vspace{1cm}
+			}
+			\Large \emph{Saksham Kaushal}
+		\end{center}
+	\end{titlepage}
+	
+	% =========================end titlepage ================================================
+	
+	\tableofcontents
+	\newpage
+	
+	% ========================= Introduction ================================================
+	
+	\section{Introduction} \label{Introduction}
+	
+	% ========================= Part 1 ======================================================
+	
+	\section{Part 1 - Ordinary Differential Equations} \label{task1}
+	
+		% ----------------------------Methods -----------------------------------------------
+		
+		\subsection{Methods} \label{methods1}
+		
+		% ----------------------------Results -----------------------------------------------
+		
+		\subsection{Results} \label{results1}
+		
+		\begin{figure} [h]
+			\includegraphics[width=\columnwidth]{../task1/q3-epsilon/plots/q3.jpg}
+			\caption{Comparison plot for}
+			\label{fig:task1.3}
+		\end{figure}
+		
+		\begin{table} [h]
+			\centering
+			\setlength{\tabcolsep}{20pt} 
+			\begin{tabular} {c c}
+				\toprule
+				\textbf{\(\epsilon\)} & \textbf{\(\sigma_{E_j}\)} \\
+				\midrule
+				\addlinespace
+				\(10^{-5}\) & \(7.326 \times 10^{-6}\)\\ 
+				\(10^{-6}\) & \(6.490 \times 10^{-7}\) \\
+				\(10^{-7}\) & \(1.887 \times 10^{-7}\) \\
+				\(10^{-8}\) & \(6.918 \times 10^{-7}\) \\
+				\(10^{-9}\) & \(1.013 \times 10^{-5}\) \\
+				\bottomrule
+			\end{tabular}
+			\caption{}
+			\label{table:task1.1}
+		\end{table}
+	
+		\begin{figure} [h]
+			\includegraphics[width=\columnwidth]{../task1/q4-trajectory/plots/q4.jpg}
+			\caption{}
+			\label{fig:task1.4}
+		\end{figure}
+	
+		\begin{figure} [h]
+			\includegraphics[width=\columnwidth]{../task1/q5q6-velocity/plots/q5_combined.jpg}
+			\hrule
+			\includegraphics[width=\columnwidth]{../task1/q5q6-velocity/plots/q5_sep.jpg}
+			\caption{}
+			\label{fig:task1.5}
+		\end{figure}
+		
+		\begin{figure} [h]
+			\includegraphics[width=\columnwidth]{../task1/q5q6-velocity/plots/q6_combined.jpg}
+			\hrule
+			\includegraphics[width=\columnwidth]{../task1/q5q6-velocity/plots/q6_sep.jpg}
+			\caption{}
+			\label{fig:task1.6}
+		\end{figure}
+		
+	% ========================= Part 1 ======================================================
+	
+	\section{Part 2 - Fourier Transform and Spectral Analysis} \label{task2}
+	
+		% ----------------------------Methods -----------------------------------------------
+	
+		\subsection{Methods} \label{methods2}
+	
+		% ----------------------------Results -----------------------------------------------
+		
+		\subsection{Results} \label{results2}
+		
+		\begin{figure} [h]
+			\includegraphics[width=\columnwidth]{../task2/plots/q1-5_lin.jpg}
+			\caption{}
+			\label{fig:task2_lin}
+		\end{figure}
+		
+		\begin{figure} [h]
+			\includegraphics[width=\columnwidth]{../task2/plots/q1-5_log.jpg}
+		\end{figure}
+	
+	
+	% ========================= Conclusions =================================================
+	
+	\section{Conclusions} \label{conclusions}
+	
+	
+\end{document}

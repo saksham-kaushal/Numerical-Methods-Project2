@@ -18,7 +18,7 @@ def get_df(fname_list):
 def plot_ejs(df):
 	sns.set()
 	palette = sns.color_palette('magma',5,desat=0.9)
-	g = sns.FacetGrid(data=df, hue='epsilon', aspect=2, height=4.5, palette=palette)
+	g = sns.FacetGrid(data=df, hue='epsilon', aspect=2, height=4.5)
 	g.map(sns.lineplot,'t','e_j', linewidth=0.4)
 	g.map(sns.scatterplot,'t','e_j', s=4.5)
 	plt.xlabel('Time', fontsize=9)

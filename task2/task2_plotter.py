@@ -15,7 +15,7 @@ def get_df(dir_list,vx_values):
 	df['vx_init']=df['vx_init'].astype('category')
 	return df
 
-def plot_ospsd_sep(df,vx_values):
+def plot_ospsd_log(df,vx_values):
 	sns.set()
 	g = sns.FacetGrid(data=df, 
 		hue='vx_init', 
@@ -33,12 +33,35 @@ def plot_ospsd_sep(df,vx_values):
 	for i,vx_value in enumerate(vx_values):
 		axes[i].set_title('('+ascii_lowercase[i]+') $v_x =$ '+str(vx_value))
 	# plt.show()
-	plt.savefig('./plots/q1-5_sep.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
+	plt.savefig('./plots/q1-5_log.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
 	return
+
+def plot_ospsd_lin(df,vx_values):
+	sns.set()
+	g = sns.FacetGrid(data=df, 
+		hue='vx_init', 
+		col='vx_init', 
+		col_order=vx_values, 
+		col_wrap=2,
+		aspect=2,
+		height=3)
+	g.map(sns.lineplot,'k','prw', linewidth=0.5)
+	g.map(sns.scatterplot,'k','prw', s=3)
+	g.set_xlabels('Frequency running number, $k$')
+	g.set_ylabels('PSD')
+	# g.set_titles(col_template='$v_x = ${col_name}') 		# add plot index
+	axes=g.axes.flatten()
+	for i,vx_value in enumerate(vx_values):
+		axes[i].set_title('('+ascii_lowercase[i]+') $v_x =$ '+str(vx_value))
+	# plt.show()
+	plt.savefig('./plots/q1-5_lin.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
+	return
+
 
 # ------------------------------------------------------------
 
 vx_values = [-1.635,-1.64,-1.68,-1.15]
 dir_list = ['./q1q2','./q3','./q4','./q5']
 df = get_df(dir_list,vx_values)
-plot_ospsd_sep(df,vx_values)
+plot_ospsd_log(df,vx_values)
+plot_ospsd_lin(df,vx_values)
