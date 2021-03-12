@@ -45,6 +45,7 @@
 	% ========================= Introduction ================================================
 	
 	\section{Introduction} \label{Introduction}
+	% Description of Physical scenario
 	
 	% ========================= Part 1 ======================================================
 	
@@ -187,7 +188,7 @@
 				\label{table:task1.3}
 			\end{table}
 			
-			\item The trajectories for a star with initial parameters defined in section \ref{methods1}, for final times of 5.0 and 20.0 in simulation are plotted in figure \ref{fig:task1.4}. Note that for all such plots, a unit stride along x-axis is not equal in length to a similar stride along y-axis, and it must be ascertained that axes ticks are considered during visualization, interpretation and analysis of these plots. Therefore, in a symmetric and homogeneous two dimensional plane, these trajectories are elongated along the x-axes.
+			\item The trajectories for a star with initial parameters defined in section \ref{methods1}, for final times of 5.0 and 20.0 in simulation are plotted in figure \ref{fig:task1.4}. 
 			
 			\begin{figure} 
 				\includegraphics[width=\columnwidth]{../task1/q4-trajectory/plots/q4.jpg}
@@ -222,7 +223,17 @@
 		\subsection{Discussions} \label{discussions1}
 		
 		\begin{itemize}
-			\item The accuracy of integration increases with reduction in time-step, although it increases execution time. However, below a certain value of integration accuracy parameter, \(\epsilon\), the accuracy tends to decrease, with abrupt changes in values at certain time-steps, as seen for \(\epsilon=10^{-9}\) in figure \ref{fig:task1.3}.
+			
+			\item The accuracy of integration increases with reduction in time-step, although it increases execution time. However, below a certain value of integration accuracy parameter, \(\epsilon\), the accuracy tends to decrease, as seen in figure \ref{fig:task1.3}.
+			
+			\item The trajectory followed by the star with \(v_x = -1.635\) in figure \ref{fig:task1.5}(b) is a case of \emph{stable periodic orbit}. Such an orbit has a closed geometry and the motion repeats after a fixed interval of time.
+			
+			\item Slight variation in the parameters from the case of \(v_x = -1.635\), we get trapped orbits. Examples of such orbits are  for \(v_x = -1.64\) and \(-1.68\). A larger deviation in parameters from the stable periodic orbit leads to a less tightly bound trapped orbit, as in the case of \(v_x = -1.68\). Such orbits are neither periodic nor closed and tend to stay in the vicinity of the parent stable periodic orbit.
+			
+			\item Similar trend can be noted in figure \ref{fig:task1.6}, where the stable periodic orbit occurs at \(v_x = -0.524\) (figure \ref{fig:task1.6}(e)). A morphological transition in orbits can be seen as we move from one stable periodic orbit (\(v_x = -1.635\)) to another (\(v_x = -0.524\)). Accordingly, the orbit for \(v_x = -1.15\), for which the initial parameters deviate the most, from the two periodic stable orbits, ends up being the trapped orbit with most loosely bound morphology.
+			
+			\item With decrease in \(v_x\), we get orbits that are more tightly bound to the center of the potential well. This trend can be seen through the decreasing span of orbits along x-axis as we move to lower values of \(v_x\) in figures \ref{fig:task1.5} and \ref{fig:task1.6}. 
+			
 		\end{itemize}
 		
 	% ========================= Part 1 ======================================================
@@ -246,6 +257,8 @@
 		
 		\begin{figure} [h]
 			\includegraphics[width=\columnwidth]{../task2/plots/q1-5_log.jpg}
+			\caption{}
+			\label{fig:task2:log}
 		\end{figure}
 	
 	

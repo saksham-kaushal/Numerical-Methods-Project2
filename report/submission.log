@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  12 MAR 2021 03:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  13 MAR 2021 04:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -561,17 +561,17 @@ on.toc)
 \openout4 = `submission.toc'.
 
  [1] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 117--119
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
 
  []
 
@@ -580,26 +580,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--119
 File: ../task1/q3-epsilon/plots/q3.jpg Graphic file (type jpg)
 <use ../task1/q3-epsilon/plots/q3.jpg>
 Package pdftex.def Info: ../task1/q3-epsilon/plots/q3.jpg  used on input line 1
-65.
+66.
 (pdftex.def)             Requested size: 452.9679pt x 240.02184pt.
 <../task1/q4-trajectory/plots/q4.jpg, id=37, 1020.81375pt x 369.02869pt>
 File: ../task1/q4-trajectory/plots/q4.jpg Graphic file (type jpg)
 <use ../task1/q4-trajectory/plots/q4.jpg>
 Package pdftex.def Info: ../task1/q4-trajectory/plots/q4.jpg  used on input lin
-e 193.
+e 194.
 (pdftex.def)             Requested size: 452.9679pt x 163.75269pt.
 <../task1/q5q6-velocity/plots/q5_combined.jpg, id=38, 1056.94875pt x 550.60706p
 t>
 File: ../task1/q5q6-velocity/plots/q5_combined.jpg Graphic file (type jpg)
 <use ../task1/q5q6-velocity/plots/q5_combined.jpg>
 Package pdftex.def Info: ../task1/q5q6-velocity/plots/q5_combined.jpg  used on 
-input line 201.
+input line 202.
 (pdftex.def)             Requested size: 452.9679pt x 235.96667pt.
 <../task1/q5q6-velocity/plots/q5_sep.jpg, id=39, 912.40875pt x 260.62369pt>
 File: ../task1/q5q6-velocity/plots/q5_sep.jpg Graphic file (type jpg)
 <use ../task1/q5q6-velocity/plots/q5_sep.jpg>
 Package pdftex.def Info: ../task1/q5q6-velocity/plots/q5_sep.jpg  used on input
- line 203.
+ line 204.
 (pdftex.def)             Requested size: 452.9679pt x 129.38492pt.
 
 
@@ -610,32 +610,32 @@ t>
 File: ../task1/q5q6-velocity/plots/q6_combined.jpg Graphic file (type jpg)
 <use ../task1/q5q6-velocity/plots/q6_combined.jpg>
 Package pdftex.def Info: ../task1/q5q6-velocity/plots/q6_combined.jpg  used on 
-input line 211.
+input line 212.
 (pdftex.def)             Requested size: 452.9679pt x 175.5012pt.
 <../task1/q5q6-velocity/plots/q6_sep.jpg, id=41, 948.54375pt x 585.83868pt>
 File: ../task1/q5q6-velocity/plots/q6_sep.jpg Graphic file (type jpg)
 <use ../task1/q5q6-velocity/plots/q6_sep.jpg>
 Package pdftex.def Info: ../task1/q5q6-velocity/plots/q6_sep.jpg  used on input
- line 213.
+ line 214.
 (pdftex.def)             Requested size: 452.9679pt x 279.76016pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5 <../task1/q3-epsilon/plots/q3.jpg>] [6 <../task1/q4-trajectory/plots/q4.jpg>
- <../task1/q5q6-velocity/plots/q5_combined.jpg> <../task1/q5q6-velocity/plots/q
-5_sep.jpg>] [7 <../task1/q5q6-velocity/plots/q6_combined.jpg> <../task1/q5q6-ve
-locity/plots/q6_sep.jpg>]
-<../task2/plots/q1-5_lin.jpg, id=56, 912.2582pt x 477.73482pt>
+] [7 <../task1/q5q6-velocity/plots/q5_combined.jpg> <../task1/q5q6-velocity/plo
+ts/q5_sep.jpg>] [8 <../task1/q5q6-velocity/plots/q6_combined.jpg> <../task1/q5q
+6-velocity/plots/q6_sep.jpg>]
+<../task2/plots/q1-5_lin.jpg, id=59, 912.2582pt x 477.73482pt>
 File: ../task2/plots/q1-5_lin.jpg Graphic file (type jpg)
 <use ../task2/plots/q1-5_lin.jpg>
-Package pdftex.def Info: ../task2/plots/q1-5_lin.jpg  used on input line 242.
+Package pdftex.def Info: ../task2/plots/q1-5_lin.jpg  used on input line 253.
 (pdftex.def)             Requested size: 452.9679pt x 237.21207pt.
-<../task2/plots/q1-5_log.jpg, id=57, 912.70987pt x 477.73482pt>
+<../task2/plots/q1-5_log.jpg, id=60, 912.70987pt x 477.73482pt>
 File: ../task2/plots/q1-5_log.jpg Graphic file (type jpg)
 <use ../task2/plots/q1-5_log.jpg>
-Package pdftex.def Info: ../task2/plots/q1-5_log.jpg  used on input line 248.
+Package pdftex.def Info: ../task2/plots/q1-5_log.jpg  used on input line 259.
 (pdftex.def)             Requested size: 452.9679pt x 237.09543pt.
- [8
+ [9
 
  <../task2/plots/q1-5_lin.jpg> <../task2/plots/q1-5_log.jpg>] (./submission.aux
 )
@@ -673,10 +673,10 @@ s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 nts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1000
 .pfb>
-Output written on submission.pdf (9 pages, 12253664 bytes).
+Output written on submission.pdf (10 pages, 12255744 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

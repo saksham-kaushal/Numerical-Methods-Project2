@@ -18,13 +18,13 @@ c
 c     initial conditions
 c
       x1 = 0.
-      x2 = 5.
+      x2 = 12.
       ys(1) = 0.                !x
-      ys(2) = -1.68                !vx
+      ys(2) = -1.64                !vx
       ys(3) = 0.087                !y
       ys(4) = 0.                !vy
 c
-      call odeint(ys,nvar,x1,x2,1.e-10,1.e-8,0.0,nok,nbad,derivs,rkqs)
+      call odeint(ys,nvar,x1,x2,1.e-7,1.e-8,0.0,nok,nbad,derivs,rkqs)
 c
       do 10 i=1,kmax
       ej = 0.5*(yp(2,i)**2+yp(4,i)**2)-0.5*om**2*(yp(1,i)**2+yp(3,i)**2)
@@ -112,7 +112,7 @@ c
         if(abs(hnext).lt.hmin) stop
      *'stepsize smaller than minimum in odeint'
         h=hnext
-        write(10,*) x, h, hmin
+c        write(10,*) x, h, hmin
 16    continue
       stop 'too many steps in odeint'
       return
