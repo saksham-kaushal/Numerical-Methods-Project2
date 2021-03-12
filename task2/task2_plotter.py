@@ -6,13 +6,14 @@ from string import ascii_lowercase
 
 
 def get_df(dir_list,vx_values):
-	col_names = ['k','prw','log_prw']
+	col_names = ['nu','prw','log_prw']
 	df_list = [pd.read_csv(str(subdir+'/fort.25'), delim_whitespace=True, names=col_names) for subdir in dir_list]
 	# print (df_list)
 	for df,vx in zip(df_list,vx_values):
 		df['vx_init'] = vx
 	df = pd.concat(df_list, ignore_index=False)
 	df['vx_init']=df['vx_init'].astype('category')
+	df['nu'] = df['nu'].apply(lambda a: 2*np.pi*(a-1)/(8192*0.02))
 	return df
 
 def plot_ospsd_log(df,vx_values):
@@ -24,9 +25,9 @@ def plot_ospsd_log(df,vx_values):
 		col_wrap=2,
 		aspect=2,
 		height=3)
-	g.map(sns.lineplot,'k','log_prw', linewidth=0.5)
-	g.map(sns.scatterplot,'k','log_prw', s=3)
-	g.set_xlabels('Frequency running number, $k$')
+	g.map(sns.lineplot,'nu','log_prw', linewidth=0.5)
+	g.map(sns.scatterplot,'nu','log_prw', s=3)
+	g.set_xlabels('Frequency, $\\nu$')
 	g.set_ylabels('$log(PSD)$')
 	# g.set_titles(col_template='$v_x = ${col_name}') 		# add plot index
 	axes=g.axes.flatten()
@@ -45,9 +46,9 @@ def plot_ospsd_lin(df,vx_values):
 		col_wrap=2,
 		aspect=2,
 		height=3)
-	g.map(sns.lineplot,'k','prw', linewidth=0.5)
-	g.map(sns.scatterplot,'k','prw', s=3)
-	g.set_xlabels('Frequency running number, $k$')
+	g.map(sns.lineplot,'nu','prw', linewidth=0.5)
+	g.map(sns.scatterplot,'nu','prw', s=3)
+	g.set_xlabels('Frequency, $\\nu$')
 	g.set_ylabels('PSD')
 	# g.set_titles(col_template='$v_x = ${col_name}') 		# add plot index
 	axes=g.axes.flatten()

@@ -32,8 +32,8 @@ def plot_ejs(df):
 		labels=['$10^{-5}$','$10^{-6}$','$10^{-7}$','$10^{-8}$','$10^{-9}$'], 
 		loc=0,
 		ncol=2)
-	plt.savefig('./plots/q3.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
-	# plt.show()
+	# plt.savefig('./plots/q3.jpg',bbox_inches='tight',pad_inches=0.5,dpi=480)
+	plt.show()
 	return
 
 
