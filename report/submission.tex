@@ -7,6 +7,7 @@
 
 \usepackage{booktabs}
 \usepackage{wrapfig}
+\usepackage{subcaption}
 
 \usepackage[backend=bibtex, style=numeric, sorting=none]{biblatex}
 \bibliography{references}
@@ -218,7 +219,7 @@
 		\end{itemize}
 		
 	
-		% ----------------------------Results -----------------------------------------------
+		% ----------------------------Discussions -----------------------------------------------
 		
 		\subsection{Discussions} \label{discussions1}
 		
@@ -245,22 +246,128 @@
 	
 		\subsection{Methods} \label{methods2}
 	
+		In the FORTRAN code \emph{fourier19.f}, the setup for the simulation is performed in a manner similar to that in section \ref{methods1}, with \(v_x = -1.635\). The simulation produces output files containing values of the frequency running number (\(k\)), the power spectral density as percentage (\(prw\)) and the logarithm of this value (\(\log{prw}\)). The value of \(k\) can be converted to frequency, \(\omega\) using the relation,
+		\begin{equation}
+			\omega = \frac{2\pi (k-1)}{KMAXX*step},
+			\label{eq:k_to_freq}
+		\end{equation} 
+		where \(KMAXX = 2^{13} = 8192\) and \(step = 0.02\) are predefined in the program.
+		
+		The value of \(v_x\), assigned to variable \texttt{ys(2)}, is set to \(-1.635\), \(-1.64\), \(-1.68\) and \(-1.15\) in separate runs of the simulation, each producing a different output file to be analyzed.
+		
 		% ----------------------------Results -----------------------------------------------
 		
 		\subsection{Results} \label{results2}
 		
-		\begin{figure} [h]
+		\begin{figure}
 			\includegraphics[width=\columnwidth]{../task2/plots/q1-5_lin.jpg}
-			\caption{}
+			\caption{One-sided power spectral density (in \%) vs frequency plots for various initial values of \(v_x\).}
 			\label{fig:task2_lin}
 		\end{figure}
 		
-		\begin{figure} [h]
+		
+		\begin{figure}
 			\includegraphics[width=\columnwidth]{../task2/plots/q1-5_log.jpg}
-			\caption{}
-			\label{fig:task2:log}
+			\caption{Logarithm (base 10) of one-sided power spectral density vs frequency plots for various initial values of \(v_x\).}
+			\label{fig:task2_log}
 		\end{figure}
 	
+		
+		\begin{table}
+			
+			\begin{subtable} [h] {0.275\linewidth}
+				\centering
+				\begin{tabular} {l l l}
+					\toprule
+					\textbf{k} & \textbf{\(\omega\)} &  \\
+					\midrule
+					123 & 4.678 & \(a\) \\
+					245 & 9.357 & \(\approx 2a\) \\
+					367 & 14.036 & \(\approx 3a\) \\
+					488 & 18.676 & \(\approx 4a\) \\
+					610 & 23.355 & \(\approx 5a\) \\
+					732 & 28.03 & \(\approx 6a\) \\
+					854 & 32.71 & \(\approx 7a\) \\
+					\(\dots\) & & \\
+					\bottomrule
+				\end{tabular}
+				\caption{\(v_x = -1.635\).}
+				\label{table:task2_1}
+			\end{subtable}%
+			\hspace{0.05\linewidth}
+			\begin{subtable} [h] {0.275\linewidth}
+				\centering
+				\begin{tabular} {l l l}
+					\toprule
+					\textbf{k} & \textbf{\(\omega\)} &  \\
+					\midrule
+					98 & 3.72 & \(b\) \\
+					121 & 4.602 & \(a\) \\
+					144 & 5.484 & \(\approx 2a-b\) \\
+					218 & 8.322 & \(\approx a+b\) \\
+					240 & 9.165 &  \(\approx 2a\)\\
+					264 & 10.086 & \(\approx 3a-b\) \\
+					337 & 12.885 & \(\approx 2a+b\) \\
+					360 & 13.767 & \(\approx 3a\) \\
+					383 & 14.65 & \(\approx 4a-b\) \\
+					457 & 17.526 & \(\approx 3a+b\) \\
+					480 & 18.37 & \(\approx 4a\) \\
+					503 & 19.29 & \(\approx 5a-b\) \\
+					\(\dots\) & & \\
+					\bottomrule
+				\end{tabular}
+				\caption{\(v_x = -1.64\).}
+				\label{table:task2_2}
+			\end{subtable}
+			\hspace{0.05\linewidth}
+			\begin{subtable} [h] {0.275\linewidth}
+				\centering
+				\begin{tabular} {l l l l}
+					\toprule
+					& \textbf{k} & \textbf{\(\omega\)} &  \\
+					\midrule
+					* & 20 & 0.73 & \(b\) \\
+					& 64 & 2.416 & \(\approx a-2b\) \\
+					* & 83 & 3.145 & \(\approx a-b\) \\
+					* & 102 & 3.873 & \(a\) \\
+					* & 122 & 4.64 & \(\approx a+b\) \\
+					* & 141 & 5.37 & \(\approx a+2b\) \\
+					& 166 & 6.328 & \(\approx 2a-2b\) \\
+					* & 185 & 7.056 & \(\approx 2a-b\) \\
+					* & 204 & 7.785 & \(\approx 2a\) \\
+					* & 223 & 8.514 & \(\approx 2a+b\) \\
+					* & 242 & 9.242 & \(\approx 2a+2b\) \\
+					& 267 & 10.2 & \(\approx 3a-2b\) \\          
+					& 281 & 10.738 & \(\approx 3a-b\) \\ 
+					& 305 & 11.66 & \(\approx 3a\) \\
+					* & 324 & 12.387 & \(\approx 3a+b\) \\
+					& 344 & 13.154 & \(\approx 3a+2b\) \\
+					& \(\dots\) &  & \\
+					\bottomrule
+				\end{tabular}
+				\caption{\(v_x = -1.68\). The starred rows comprise of peaks with a component \(>0.1\%\) of total power.}
+				\label{table:task2_3}
+			\end{subtable}
+			\caption{Frequency running number (\(k\)) and corresponding frequency values (\(\omega\)) for few initial peaks in the data for different initial values of \(v_x\). Algebraic representation of accompanying dependent frequencies in terms of independent frequencies is also given in the unlabeled rightmost column.}
+			\label{table:task2_1-3}
+		\end{table}
+	
+		
+		\begin{itemize}
+			
+			\item One-sided PSD for \(v_x = -1.635\) is plotted on linear scale in figure \ref{fig:task2_lin}(a) and on logarithmic scale in figure \ref{fig:task2_log}(a). The initial few major peaks are listed in table \ref{table:task2_1}.
+			
+			\item One-sided PSD for \(v_x = -1.64\) is plotted on linear scale in figure \ref{fig:task2_lin}(b) and on logarithmic scale in figure \ref{fig:task2_log}(b). The initial few major peaks are listed in table \ref{table:task2_2}.
+			
+			\item One-sided PSD for \(v_x = -1.68\) is plotted on linear scale in figure \ref{fig:task2_lin}(c) and on logarithmic scale in figure \ref{fig:task2_log}(c). The initial few major peaks are listed in table \ref{table:task2_3}.	
+			
+			\item One-sided PSD for \(v_x = -1.15\) is plotted on linear scale in figure \ref{fig:task2_lin}(d) and on logarithmic scale in figure \ref{fig:task2_log}(d).
+						
+		\end{itemize}
+		
+	% ----------------------------Discussions -----------------------------------------------
+	
+	\subsection{Discussions} \label{discussions2}
 	
 	% ========================= Conclusions =================================================
 	

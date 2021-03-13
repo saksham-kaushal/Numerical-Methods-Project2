@@ -27,8 +27,8 @@ def plot_ospsd_log(df,vx_values):
 		height=3)
 	g.map(sns.lineplot,'nu','log_prw', linewidth=0.5)
 	g.map(sns.scatterplot,'nu','log_prw', s=3)
-	g.set_xlabels('Frequency, $\\nu$')
-	g.set_ylabels('$log(PSD)$')
+	g.set_xlabels('Frequency, $\\omega$')
+	g.set_ylabels('$log(\\frac{PSD(\\omega)}{100})$')
 	# g.set_titles(col_template='$v_x = ${col_name}') 		# add plot index
 	axes=g.axes.flatten()
 	for i,vx_value in enumerate(vx_values):
@@ -48,7 +48,7 @@ def plot_ospsd_lin(df,vx_values):
 		height=3)
 	g.map(sns.lineplot,'nu','prw', linewidth=0.5)
 	g.map(sns.scatterplot,'nu','prw', s=3)
-	g.set_xlabels('Frequency, $\\nu$')
+	g.set_xlabels('Frequency, $\\omega$')
 	g.set_ylabels('PSD')
 	# g.set_titles(col_template='$v_x = ${col_name}') 		# add plot index
 	axes=g.axes.flatten()

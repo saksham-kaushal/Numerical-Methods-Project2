@@ -16,4 +16,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2}Results}{9}%
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.3}Discussions}{9}%
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Conclusions}{9}%
