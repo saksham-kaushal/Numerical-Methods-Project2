@@ -44,9 +44,42 @@
 	
 	% ========================= Introduction ================================================
 	
-	\section{Introduction} \label{Introduction}
+	\section{Introduction} \label{introduction}
 	
-	This section introduced the principles of numerical methods involved in this study. In sections \ref{task1} and \ref{task2} the methods, results and discussion of observations are presented for part 1 and 2 of the project respectively. Section \ref{conclusions} gives a brief summary of physical phenomena studies using these simulations along with conclusions derived from both parts of the project.
+	Ordinary differential equations with no analytical solutions can be integrated numerically to obtain their solutions in particular conditions. Runge-Kutta methods can be used for such numerical integration in initial value problems. Fourth order Runge-Kutta method is most often used and is accurate to fourth power in Taylor's expansion. This is defined as follows \cite{press_numerical_1992}.
+	\begin{equation}
+		y_{n+1} = y_n + \frac{k_1}{6} + \frac{k_1}{6} + \frac{k_2}{3} + \frac{k_3}{3} + \frac{k_4}{6} + \mathcal{O}(h^5),
+		\label{eq:RK}
+	\end{equation} where,
+	\[k_1 = hf(x_n,y_n),\]
+	\[k_2 = hf(x_n+\frac{h}{2},y_n+\frac{k_1}{2}),\]
+	\[k_3 = hf(x_n+\frac{h}{2},y_n+\frac{k_2}{2}),\]
+	\[k_4 = hf(x_n+h,y_n+k_3).\]
+	
+	Here \(h\) is the step-size for integration and its value can be adjusted dynamically depending on the region of the function being integrated. Such a technique uses adaptive step-size by calculating \(n^{th}\) value of \(h\) as \cite{lecture_3} 
+	\begin{equation}
+		h_n = h_{n-1} \left| \frac{\Delta_0}{\Delta} \right| ^m,
+		\label{eq:stepsize}
+	\end{equation}
+	where \(h_n\) is the new updated step-size, \(h_{n-1}\) is the previous step-size and \(m\) is an exponent usually in the range \([0.2,0.25]\), optionally set to different values when increasing or decreasing the step-size.\\~\\
+	
+	A physical process can be represented in either time-domain or frequency domain \cite{press_numerical_1992}, according to the relations \cite{lecture_4},
+	\begin{equation}
+		H(\omega) = \int_{-\inf}^{\inf} e^{i \omega t} h(t) dt,
+		\label{eq:fourier_transform}
+	\end{equation}
+	\begin{equation}
+		h(t) = \frac{1}{2\pi} \int_{-\inf}^{\inf} e^{-i \omega t} H(\omega) d\omega .
+	\end{equation}
+
+	We can go from time-domain representation of a function to frequency domain representation and vice-versa using Fourier transforms and inverse Fourier transform, respectively. An optimized method for calculating discrete Fourier transform employs an algorithm of time complexity at least \(\mathcal{O}(N \log_2N)\) as opposed to \(\mathcal{O}(N^2)\) in normal case. This method is known as fast Fourier transform. By calculating power spectrum of a function using Fourier transform, an analysis of different constituent frequencies can be performed. For a real-valued \(h(t)\), power spectral density (PSD) can be calculated using the relation below \cite{lecture_4}. This estimator of power is known as periodogram.
+	\begin{equation}
+		P_h(\omega_n) = \frac{2}{N^2} |H_n|^2.
+		\label{eq:psd}
+	\end{equation}
+	\\
+	
+	This section introduced the basic principles of numerical methods involved in this study. In sections \ref{task1} and \ref{task2} the methods, results and discussion of observations are presented for part 1 and 2 of the project respectively. Section \ref{conclusions} gives a brief summary of physical phenomena studied using these simulations along with conclusions derived from both parts of the project.
 	
 	% ========================= Part 1 ======================================================
 	
@@ -93,17 +126,13 @@
 		\label{eq:jacobi_integral}
 	\end{equation}
 	
-	From equation 13 of \cite{lecture_3}, the numerical error in each integration time-step can be controlled by adapting the step-size accordingly. If we define,
+	From equation 13 of \cite{lecture_3}, the numerical error in each integration time-step can be controlled by adapting the step-size according to the maximum permissible error. If we define,
 	\begin{equation}
 		\Delta_0 \equiv \epsilon y_{max},
 		\label{eq:numerical_error}
 	\end{equation}
-	then \(\Delta < \Delta_0\) should be satisfied for each integration step, where \(\Delta\) is the numerical error of a given step, \(\epsilon\) is the parameter defining the accuracy of integration and \(y_{max}\) is the amplitude of function in the range over which function is being integrated. If this inequality does not hold true, the values need to be adjusted accordingly, and the integration step is repeated with reduced step-size until this inequality is satisfied. However, if this inequality does indeed hold true such that \(\Delta \ll \Delta_0\), integration step-size can be safely increased to reduce the difference between \(\Delta\) and \(\Delta_0\). The step-size can be update according to equation 14 of \cite{lecture_3}, given as,
-	\begin{equation}
-		h = h_n \left| \frac{\Delta_0}{\Delta} \right| ^m,
-		\label{eq:stepsize}
-	\end{equation}
-	where \(h\) is the new updated step-size, \(h_n\) is the previous step-size and \(m\) is an exponent usually set to different values when increasing or decreasing the step-size, often in the range \([0.2,0.25]\). 
+	then \(\Delta < \Delta_0\) should be satisfied for each integration step, where \(\Delta\) is the numerical error of a given step, \(\epsilon\) is the parameter defining the accuracy of integration and \(y_{max}\) is the amplitude of function in the range over which function is being integrated. If this inequality does not hold true, the values need to be adjusted accordingly, and the integration step is repeated with reduced step-size until this inequality is satisfied. However, if this inequality does indeed hold true such that \(\Delta \ll \Delta_0\), integration step-size can be safely increased to reduce the difference between \(\Delta\) and \(\Delta_0\). The step-size can be update according to equation \ref{eq:stepsize}.
+	 
 	
 		% ----------------------------Methods -----------------------------------------------
 		
@@ -241,6 +270,13 @@
 	
 	\clearpage
 	\section{Part 2 - Fourier Transform and Spectral Analysis} \label{task2}
+	
+	The basic principles of Fourier transform and spectral analysis were discussed in section \ref{introduction}. For the highest frequency in the data to be resolved, it is necessary that a discrete Fourier transform is sampled above a critical sampling frequency known as Nyquist frequency, given by \cite{lecture_4},
+	\begin{equation}
+		\omega_c = \frac{\pi}{\Delta},
+		\label{eq:nyquist_freq}
+	\end{equation} 
+	where, \(\Delta\) is the sampling interval. The value of \(\Delta\) for sampling any discrete Fourier transform needs to be optimized for obtaining correct results. An extremely small value of it increases critical sampling value and therefore, leads to power in frequencies below Nyquist frequency adding up and getting assigned to zero frequency. On the other hand, a large value of it would lead to aliasing, in which power at high frequencies gets \emph{folded} and eventually added to low frequencies, essentially giving us incorrect results.
 	
 		% ----------------------------Methods -----------------------------------------------
 	
@@ -388,7 +424,7 @@
 		
 			\item \begin{enumerate}
 				\item Given that there is almost no power present in high frequencies, no significant aliasing is expected in this case.
-				\item There is no power at zero frequency and all power peaks lie at frequencies significantly higher than Nyquist frequency (\(= \frac{2 \pi}{N \Delta}\), where \(N=\)\texttt{KMAXX} and \(\Delta=\)\texttt{step} in the code). This indicates that unresolved peaks in power at low frequencies are not expected.
+				\item There is no power at zero frequency and all power peaks lie at frequencies significantly higher than Nyquist frequency (\(= \frac{2 \pi}{N \Delta}\), from equation \ref{eq:nyquist_freq}, where \(N=\)\texttt{KMAXX} and \(\Delta=\)\texttt{step} in the code). This indicates that unresolved peaks in power at low frequencies are not expected.
 				\item As can be seen from figure \ref{fig:task2_log}(a), the distribution of power spectral density consists of a set of sharp peaks.
 				\item From figure \ref{fig:task2_log}(a), it can be observed that the peaks do not occur randomly and their distribution across the range of frequencies seems regular. This can be confirmed from table \ref{table:task2_1}, where we see that these peaks occur at regular intervals of a frequency. 
 			\end{enumerate}
@@ -418,7 +454,7 @@
 	
 	In this project we study the orbits of objects in barred potential wells, which represent the physical scenario of stars in the bars of the galaxies. The trajectories vary substantially as we alter parameters like initial position and velocity. On the quantitative analysis side of our study, how precisely we calculate these trajectories has a profound impact on our observations and understandings.
 	
-	The ordinary differential equations can be numerically integrated using several methods. In this project, equation of motion of star in a potential was integrated using fourth order Range-Kutta method. The accuracy and precision of our integration was tested by analyzing the values of a quantity conserved over time, known as the Jacobi integral. Orbits for various combinations of parameters were obtained and their morphology was examined. 
+	The ordinary differential equations can be numerically integrated using several methods. In this project, equation of motion of star in a potential was integrated using fourth order Runge-Kutta method. The accuracy and precision of our integration was tested by analyzing the values of a quantity conserved over time, known as the Jacobi integral. Orbits for various combinations of parameters were obtained and their morphology was examined. 
 	
 	A subset of these orbits was then analyzed using Fourier transforms. From power spectrum analysis of these orbits, we obtained the distribution of power in orbits across a range of frequencies.
 	

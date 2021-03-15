@@ -17,6 +17,76 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{press_numerical_1992}{book}{}
+    \name{author}{4}{}{%
+      {{hash=PWH}{%
+         family={Press},
+         familyi={P\bibinitperiod},
+         given={William\bibnamedelima H.},
+         giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=FBP}{%
+         family={Flannery},
+         familyi={F\bibinitperiod},
+         given={Brian\bibnamedelima P.},
+         giveni={B\bibinitperiod\bibinitdelim P\bibinitperiod},
+      }}%
+      {{hash=TSA}{%
+         family={Teukolsky},
+         familyi={T\bibinitperiod},
+         given={Saul\bibnamedelima A.},
+         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=VWT}{%
+         family={Vetterling},
+         familyi={V\bibinitperiod},
+         given={William\bibnamedelima T.},
+         giveni={W\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{PWH+1}
+    \strng{fullhash}{PWHFBPTSAVWT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{abstract}{%
+    This is the greatly revised and greatly expanded Second Edition of the
+  hugely popular Numerical Recipes: The Art of Scientific Computing. The
+  product of a unique collaboration among four leading scientists in academic
+  research and industry Numerical Recipes is a complete text and reference book
+  on scientific computing. In a self-contained manner it proceeds from
+  mathematical and theoretical considerations to actual practical computer
+  routines. With over 100 new routines bringing the total to well over 300,
+  plus upgraded versions of the original routines, this new edition remains the
+  most practical, comprehensive handbook of scientific computing available
+  today. Highlights of the new material include: -A new chapter on integral
+  equations and inverse methods -Multigrid and other methods for solving
+  partial differential equations -Improved random number routines - Wavelet
+  transforms -The statistical bootstrap method -A new chapter on
+  "less-numerical" algorithms including compression coding and arbitrary
+  precision arithmetic. The book retains the informal easy-to-read style that
+  made the first edition so popular, while introducing some more advanced
+  topics. It is an ideal textbook for scientists and engineers and an
+  indispensable reference for anyone who works in scientific computing. The
+  Second Edition is availabe in {FORTRAN}, the traditional language for
+  numerical calculations and in the increasingly popular C language.%
+    }
+    \field{edition}{2nd edition}
+    \field{isbn}{978-0-521-43064-7}
+    \field{pagetotal}{933}
+    \field{shorttitle}{Numerical Recipes in Fortran 77}
+    \field{title}{Numerical Recipes in Fortran 77: The Art of Scientific
+  Computing}
+    \list{location}{1}{%
+      {Cambridge England ; New York}%
+    }
+    \field{day}{25}
+    \field{month}{09}
+    \field{year}{1992}
+  \endentry
+
   \entry{lecture_3}{unpublished}{}
     \name{author}{1}{}{%
       {{hash=W}{%
