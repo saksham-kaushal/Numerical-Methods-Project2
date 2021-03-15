@@ -19,3 +19,5 @@
 \contentsline {subsection}{\numberline {3.3}Discussions}{9}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Conclusions}{11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{References}{12}%

@@ -16,5 +16,45 @@
   {}
 \endgroup
 
-\datalist[entry]{none/global//global/global}\enddatalist
+\datalist[entry]{none/global//global/global}
+  \entry{lecture_3}{unpublished}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={{Witold Maciejewski}},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{shorttitle}{Lecture 3}
+    \field{title}{Lecture 3: Notes on Ordinary Differential Equations}
+  \endentry
+
+  \entry{orbits_lamfr}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{Orbits in Realistic Galaxy Potentials - {LAM} - Laboratoire
+  d'Astrophysique de Marseille}
+    \verb{url}
+    \verb https://www.lam.fr/anciennes-pages-d-equipe/dynamique-des-galaxies/da
+    \verb gal/dagal-lam/orbits-in-realistic-galaxy/?lang=fr
+    \endverb
+  \endentry
+
+  \entry{lecture_4}{unpublished}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={{Witold Maciejewski}},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{shorttitle}{Lecture 4}
+    \field{title}{Lecture 4: Notes on Fourier Transform and Spectral Analysis}
+  \endentry
+\enddatalist
 \endinput

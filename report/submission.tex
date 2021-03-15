@@ -11,7 +11,6 @@
 
 \usepackage[backend=bibtex, style=numeric, sorting=none]{biblatex}
 \bibliography{references}
-%\addbibresource{references.bib}
 
 \usepackage[font=footnotesize,labelfont=bf]{caption}
 \captionsetup{width=\columnwidth}
@@ -46,20 +45,21 @@
 	% ========================= Introduction ================================================
 	
 	\section{Introduction} \label{Introduction}
-	% Description of Physical scenario
+	
+	This section introduced the principles of numerical methods involved in this study. In sections \ref{task1} and \ref{task2} the methods, results and discussion of observations are presented for part 1 and 2 of the project respectively. Section \ref{conclusions} gives a brief summary of physical phenomena studies using these simulations along with conclusions derived from both parts of the project.
 	
 	% ========================= Part 1 ======================================================
 	
 	\newpage
 	\section{Part 1 - Ordinary Differential Equations} \label{task1}
 	
-	For stars in disk of the galaxy, equation of motion is given by equation 19 of the lecture notes as,
+	For stars in disk of the galaxy, equation of motion is given by equation 19 of \cite{lecture_3} as,
 	\begin{equation}
 		\frac{d^2r(t)}{dt^2} = - \nabla \Phi (r) -2 \Omega_B \times v+ \Omega_B^2 r ,
 		\label{eq:motion1}
 	\end{equation}
 	
-	where \(\Omega_B\) is angular velocity and the gravitational potential, \(\Phi (r)\) in the two dimensions for an elongated bar structure is given by equation 20 of lecture notes as,
+	where \(\Omega_B\) is angular velocity and the gravitational potential, \(\Phi (r)\) in the two dimensions for an elongated bar structure is given by equation 20 of \cite{lecture_3} as,
 	\begin{equation}
 		\Phi(x,y)=\frac{v_0^2}{2} ln(a^2+x^2+\frac{y^2}{q^2}). 
 		\label{eq:grav_potential}
@@ -93,12 +93,12 @@
 		\label{eq:jacobi_integral}
 	\end{equation}
 	
-	From equation 13 of the lecture notes, the numerical error in each integration time-step can be controlled by adapting the step-size accordingly. If we define,
+	From equation 13 of \cite{lecture_3}, the numerical error in each integration time-step can be controlled by adapting the step-size accordingly. If we define,
 	\begin{equation}
 		\Delta_0 \equiv \epsilon y_{max},
 		\label{eq:numerical_error}
 	\end{equation}
-	then \(\Delta < \Delta_0\) should be satisfied for each integration step, where \(\Delta\) is the numerical error of a given step, \(\epsilon\) is the parameter defining the accuracy of integration and \(y_{max}\) is the amplitude of function in the range over which function is being integrated. If this inequality does not hold true, the values need to be adjusted accordingly, and the integration step is repeated with reduced step-size until this inequality is satisfied. However, if this inequality does indeed hold true such that \(\Delta \ll \Delta_0\), integration step-size can be safely increased to reduce the difference between \(\Delta\) and \(\Delta_0\). The step-size can be update according to equation 14 of lecture notes, given as,
+	then \(\Delta < \Delta_0\) should be satisfied for each integration step, where \(\Delta\) is the numerical error of a given step, \(\epsilon\) is the parameter defining the accuracy of integration and \(y_{max}\) is the amplitude of function in the range over which function is being integrated. If this inequality does not hold true, the values need to be adjusted accordingly, and the integration step is repeated with reduced step-size until this inequality is satisfied. However, if this inequality does indeed hold true such that \(\Delta \ll \Delta_0\), integration step-size can be safely increased to reduce the difference between \(\Delta\) and \(\Delta_0\). The step-size can be update according to equation 14 of \cite{lecture_3}, given as,
 	\begin{equation}
 		h = h_n \left| \frac{\Delta_0}{\Delta} \right| ^m,
 		\label{eq:stepsize}
@@ -227,9 +227,9 @@
 			
 			\item The accuracy of integration increases with reduction in time-step, although it increases execution time. However, below a certain value of integration accuracy parameter, \(\epsilon\), the accuracy tends to decrease, as seen in figure \ref{fig:task1.3}.
 			
-			\item The trajectory followed by the star with \(v_x = -1.635\) in figure \ref{fig:task1.5}(b) is a case of \emph{stable periodic orbit}. Such an orbit has a closed geometry and the motion repeats after a fixed interval of time.
+			\item The trajectory followed by the star with \(v_x = -1.635\) in figure \ref{fig:task1.5}(b) is a case of \emph{stable periodic orbit} \cite{orbits_lamfr}. Such an orbit has a closed geometry and the motion repeats after a fixed interval of time.
 			
-			\item Slight variation in the parameters from the case of \(v_x = -1.635\), we get trapped orbits. Examples of such orbits are  for \(v_x = -1.64\) and \(-1.68\). A larger deviation in parameters from the stable periodic orbit leads to a less tightly bound trapped orbit, as in the case of \(v_x = -1.68\). Such orbits are neither periodic nor closed and tend to stay in the vicinity of the parent stable periodic orbit.
+			\item Slight variation in the parameters from the case of \(v_x = -1.635\), we get \emph{trapped orbits} \cite{orbits_lamfr}. Examples of such orbits are for \(v_x = -1.64\) and \(-1.68\). A larger deviation in parameters from the stable periodic orbit leads to a less tightly bound trapped orbit, as in the case of \(v_x = -1.68\). Such orbits are neither periodic nor closed and tend to stay in the vicinity of the parent stable periodic orbit.
 			
 			\item Similar trend can be noted in figure \ref{fig:task1.6}, where the stable periodic orbit occurs at \(v_x = -0.524\) (figure \ref{fig:task1.6}(e)). A morphological transition in orbits can be seen as we move from one stable periodic orbit (\(v_x = -1.635\)) to another (\(v_x = -0.524\)). Accordingly, the orbit for \(v_x = -1.15\), for which the initial parameters deviate the most, from the two periodic stable orbits, ends up being the trapped orbit with most loosely bound morphology.
 			
@@ -393,7 +393,7 @@
 				\item From figure \ref{fig:task2_log}(a), it can be observed that the peaks do not occur randomly and their distribution across the range of frequencies seems regular. This can be confirmed from table \ref{table:task2_1}, where we see that these peaks occur at regular intervals of a frequency. 
 			\end{enumerate}
 		
-			\item Table \ref{table:task2_1} enlists the frequencies at which peaks in power occur. Relations of these peaks to the primary peak are given in the last column, from which we can infer that peaks occur at frequencies which are integral multiples of frequency of the primary peak. No secondary peak is required to explain any peak in the sequence. Also, from the data, it is observed that the power in these peaks decreases with increase in the integral coefficient, in accordance with the property of Fourier transforms given in lecture notes. The frequency, \(\omega\) of the primary peak is 4.678 (\(k=123\)). Therefore all subsequent peaks can be represented as, \(\omega_n=4.678n\), where \(n=2, 3, 4, \dots\). Hence the trajectory oscillates with a single frequency, \(\omega = 4.678\).
+			\item Table \ref{table:task2_1} enlists the frequencies at which peaks in power occur. Relations of these peaks to the primary peak are given in the last column, from which we can infer that peaks occur at frequencies which are integral multiples of frequency of the primary peak. No secondary peak is required to explain any peak in the sequence. Also, from the data, it is observed that the power in these peaks decreases with increase in the integral coefficient, in accordance with the property of Fourier transforms given in \cite{lecture_4}. The frequency, \(\omega\) of the primary peak is 4.678 (\(k=123\)). Therefore all subsequent peaks can be represented as, \(\omega_n=4.678n\), where \(n=2, 3, 4, \dots\). Hence the trajectory oscillates with a single frequency, \(\omega = 4.678\).
 			
 			From section \ref{discussions1}, we know that in this case, the star is in a stable periodic orbit. From preceding discussion we also know that this trajectory oscillates with a single frequency. Thus, we expect the star to be at the same point after each complete period of oscillation. Hence, after one period of oscillation, the star sis located at the same point from where it started. This is confirmed by finding the coordinates of star after \(t=\frac{2\pi}{\omega}\). Given \(\omega=4.678\), we get \(t \approx 1.343\). By interpolation of data obtained in section \ref{results1} for \(v_x=-1.625\), we obtain \((x,y)={-0.0021,-0.0870}\) at \(t=1.343\). For comparison, \((x,y)=(0.0000,0..870)\) at \(t=0\) almost coincides with this value. Therefore, the star is observed at same location after one period. 
 			
@@ -416,5 +416,17 @@
 	
 	\section{Conclusions} \label{conclusions}
 	
+	In this project we study the orbits of objects in barred potential wells, which represent the physical scenario of stars in the bars of the galaxies. The trajectories vary substantially as we alter parameters like initial position and velocity. On the quantitative analysis side of our study, how precisely we calculate these trajectories has a profound impact on our observations and understandings.
+	
+	The ordinary differential equations can be numerically integrated using several methods. In this project, equation of motion of star in a potential was integrated using fourth order Range-Kutta method. The accuracy and precision of our integration was tested by analyzing the values of a quantity conserved over time, known as the Jacobi integral. Orbits for various combinations of parameters were obtained and their morphology was examined. 
+	
+	A subset of these orbits was then analyzed using Fourier transforms. From power spectrum analysis of these orbits, we obtained the distribution of power in orbits across a range of frequencies.
+	
+	We conclude that stable periodic orbits oscillate at a single frequency and therefore a star in such an orbit is expected to undergo periodic motion over a closed trajectory. On the other hand, trapped orbits oscillate at a combination of multiple frequencies. A star in such an orbit tends to remain in vicinity of its parent stable periodic orbit and follows a trajectory with open geometry. The more the initial parameters mentioned above vary for a star in trapped orbit, the lesser it tends to remain in vicinity of parent stable periodic orbit. Also, with decrease in velocity, a star follows an orbit that spans less farther away from the center of potential well.  
+	
+	
+	% ========================= References =================================================
+	
+	\printbibliography[heading=bibintoc]
 	
 \end{document}
