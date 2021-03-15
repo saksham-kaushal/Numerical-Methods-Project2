@@ -223,7 +223,7 @@
 		
 		\subsection{Discussions} \label{discussions1}
 		
-		\begin{itemize}
+		\begin{enumerate}
 			
 			\item The accuracy of integration increases with reduction in time-step, although it increases execution time. However, below a certain value of integration accuracy parameter, \(\epsilon\), the accuracy tends to decrease, as seen in figure \ref{fig:task1.3}.
 			
@@ -235,7 +235,7 @@
 			
 			\item With decrease in \(v_x\), we get orbits that are more tightly bound to the center of the potential well. This trend can be seen through the decreasing span of orbits along x-axis as we move to lower values of \(v_x\) in figures \ref{fig:task1.5} and \ref{fig:task1.6}. 
 			
-		\end{itemize}
+		\end{enumerate}
 		
 	% ========================= Part 1 ======================================================
 	
@@ -265,13 +265,6 @@
 			\label{fig:task2_lin}
 		\end{figure}
 		
-		
-		\begin{figure}
-			\includegraphics[width=\columnwidth]{../task2/plots/q1-5_log.jpg}
-			\caption{Logarithm (base 10) of one-sided power spectral density vs frequency plots for various initial values of \(v_x\).}
-			\label{fig:task2_log}
-		\end{figure}
-	
 		
 		\begin{table}
 			
@@ -351,7 +344,29 @@
 			\caption{Frequency running number (\(k\)) and corresponding frequency values (\(\omega\)) for few initial peaks in the data for different initial values of \(v_x\). Algebraic representation of accompanying dependent frequencies in terms of independent frequencies is also given in the unlabeled rightmost column.}
 			\label{table:task2_1-3}
 		\end{table}
-	
+		
+
+		\begin{figure}
+			\includegraphics[width=\columnwidth]{../task2/plots/q1-5_log.jpg}
+			\caption{Logarithm (base 10) of one-sided power spectral density vs frequency plots for various initial values of \(v_x\).}
+			\label{fig:task2_log}
+		\end{figure}
+		
+		\begin{table}
+			\centering
+			\begin{tabular} {l l l}
+				\toprule
+				\textbf{k} & \textbf{\(\omega\)} & \textbf{\% of total power} \\
+				\midrule
+				289 & 11.045 & 35.177 \\ 
+				360 & 13.767 & 3.23 \\
+				647 & 24.77 & 1.73 \\
+				356 & 13.61 & 1.214 \\
+				\bottomrule
+			\end{tabular}
+			\caption{Frequencies and contribution to total power of major peaks in power spectrum for \(v_x=-1.15\).}
+			\label{table:task2_5}
+		\end{table}
 		
 		\begin{itemize}
 			
@@ -361,13 +376,41 @@
 			
 			\item One-sided PSD for \(v_x = -1.68\) is plotted on linear scale in figure \ref{fig:task2_lin}(c) and on logarithmic scale in figure \ref{fig:task2_log}(c). The initial few major peaks are listed in table \ref{table:task2_3}.	
 			
-			\item One-sided PSD for \(v_x = -1.15\) is plotted on linear scale in figure \ref{fig:task2_lin}(d) and on logarithmic scale in figure \ref{fig:task2_log}(d).
+			\item One-sided PSD for \(v_x = -1.15\) is plotted on linear scale in figure \ref{fig:task2_lin}(d) and on logarithmic scale in figure \ref{fig:task2_log}(d). The frequencies of major peaks along with the values of how much percentage of total power they constitute are given in table \ref{table:task2_5}.
 						
 		\end{itemize}
 		
-	% ----------------------------Discussions -----------------------------------------------
+		% ----------------------------Discussions -----------------------------------------------
 	
-	\subsection{Discussions} \label{discussions2}
+		\subsection{Discussions} \label{discussions2}
+		
+		\begin{enumerate}
+		
+			\item \begin{enumerate}
+				\item Given that there is almost no power present in high frequencies, no significant aliasing is expected in this case.
+				\item There is no power at zero frequency and all power peaks lie at frequencies significantly higher than Nyquist frequency (\(= \frac{2 \pi}{N \Delta}\), where \(N=\)\texttt{KMAXX} and \(\Delta=\)\texttt{step} in the code). This indicates that unresolved peaks in power at low frequencies are not expected.
+				\item As can be seen from figure \ref{fig:task2_log}(a), the distribution of power spectral density consists of a set of sharp peaks.
+				\item From figure \ref{fig:task2_log}(a), it can be observed that the peaks do not occur randomly and their distribution across the range of frequencies seems regular. This can be confirmed from table \ref{table:task2_1}, where we see that these peaks occur at regular intervals of a frequency. 
+			\end{enumerate}
+		
+			\item Table \ref{table:task2_1} enlists the frequencies at which peaks in power occur. Relations of these peaks to the primary peak are given in the last column, from which we can infer that peaks occur at frequencies which are integral multiples of frequency of the primary peak. No secondary peak is required to explain any peak in the sequence. Also, from the data, it is observed that the power in these peaks decreases with increase in the integral coefficient, in accordance with the property of Fourier transforms given in lecture notes. The frequency, \(\omega\) of the primary peak is 4.678 (\(k=123\)). Therefore all subsequent peaks can be represented as, \(\omega_n=4.678n\), where \(n=2, 3, 4, \dots\). Hence the trajectory oscillates with a single frequency, \(\omega = 4.678\).
+			
+			From section \ref{discussions1}, we know that in this case, the star is in a stable periodic orbit. From preceding discussion we also know that this trajectory oscillates with a single frequency. Thus, we expect the star to be at the same point after each complete period of oscillation. Hence, after one period of oscillation, the star sis located at the same point from where it started. This is confirmed by finding the coordinates of star after \(t=\frac{2\pi}{\omega}\). Given \(\omega=4.678\), we get \(t \approx 1.343\). By interpolation of data obtained in section \ref{results1} for \(v_x=-1.625\), we obtain \((x,y)={-0.0021,-0.0870}\) at \(t=1.343\). For comparison, \((x,y)=(0.0000,0..870)\) at \(t=0\) almost coincides with this value. Therefore, the star is observed at same location after one period. 
+			
+			\item \begin{enumerate}
+				\item Similar to result 1 above, no significant aliasing or unresolved peaks at low frequencies are expected in this case also, for reasons mentioned in part 1(a) and 1(b) respectively. 
+				\item There exists some pattern in frequencies of the power peaks, however, as seen from table \ref{table:task2_2}, the pattern is much more complicated than for peaks in table \ref{table:task2_1}. As such, the pattern cannot be explained using a single frequency.
+				\item From the last column in table \ref{table:task2_2}, we can see that all major peaks can be explained using additional peaks due two main frequencies, i.e. 4.602 (\(k=121\)) and 3.72 (\(k=98\)). 
+				\item The power in these two frequencies is \(\approx 71.384\%\) and \(\approx 0.093\%\) of total power respectively. However, some of the power of these peaks is distributed in nearby frequencies also.
+			\end{enumerate}
+		
+			\item \begin{enumerate}
+				\item For figure \ref{fig:task2_log}(c), there exist several well-defined peaks, but the pattern in those peaks is almost incomprehensible. The number of those peaks is also much larger than in case of figure \ref{fig:task2_log}(b). As a consequence, percentage contribution of these peaks towards total power is also less in this case.
+				\item Each peak containing more than \(0.1\%\) of total power is marked with an asterisk in table \ref{table:task2_3}. All these peaks can be explained using a linear combination of two major peaks at frequencies 3.873 and 0.73, as can be seen from last column of table \ref{table:task2_3}.
+				\item These two independent frequencies contain \(\approx 48.022\%\) and \(\approx 0.325\%\) of total power.   
+			\end{enumerate}
+			
+		\end{enumerate}
 	
 	% ========================= Conclusions =================================================
 	
